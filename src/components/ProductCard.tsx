@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Product } from "../interfaces/Product";
 export default function ProductCard({ product }: { product: Product }) {
   return (

@@ -9,12 +9,15 @@ export default function Dashboard() {
   const [products, setProducts] = useState<Product[]>([])
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
+  console.log(api_url);
+
   useEffect(()=> {
     const fetchProducts = async () => {
       const mainProducts: Product[] = await (await fetch(`${api_url}/api/prices`)).json()
       if(mainProducts){
         setProducts(mainProducts)
       }
+      console.log(mainProducts);
     }
     fetchProducts();
   }, [])
