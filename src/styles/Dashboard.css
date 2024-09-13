@@ -1,0 +1,241 @@
+/* Dashboard */
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    width: 200px;
+    margin-right: 1rem;
+}
+
+.appTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.userMenu {
+    position: relative;
+}
+
+.userMenuButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.userMenuDropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.userMenuLink {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.mainContent {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    font-size: 1rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6e7681;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contentGrid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #24292e;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Para pantallas grandes (al menos 1200px) */
+@media (min-width: 1200px) {
+    .productsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Tres columnas */
+    }
+}
+
+/* Para pantallas medianas (768px a 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Dos columnas */
+    }
+}
+
+/* Para pantallas pequeñas (menos de 768px) */
+@media (max-width: 767px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+        /* Una columna */
+    }
+}
+
+.productCard {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.productName {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.productPrice {
+    font-size: 0.875rem;
+    color: #6e7681;
+    margin-bottom: 0.25rem;
+}
+
+.productPriceLowest {
+    color: #28a745;
+}
+
+.productSources {
+    font-size: 0.75rem;
+    color: #6e7681;
+    margin-top: 0.5rem;
+}
+
+.filtersCard {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.filterGroup {
+    margin-bottom: 1rem;
+}
+
+.filterLabel {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #24292e;
+}
+
+.filterSelect {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+}
+
+.filterRange {
+    width: 100%;
+}
+
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e1e4e8;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    color: #6e7681;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 1rem;
+}
+
+.footerLink {
+    font-size: 0.875rem;
+    color: #0366d6;
+    text-decoration: none;
+}
