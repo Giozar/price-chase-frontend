@@ -1,50 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Dashboard.css"; // Importamos los estilos
 import ProductList from "./ProductList";
-
-interface Product {
-  name: string;
-  avgPrice: number;
-  lowestPrice: number;
-  sources: string[];
-}
+import type { Product } from "../interfaces/Product";
+import { api_url } from "../config";
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [products, setProducts] = useState<Product[]>([])
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  const mainProducts: Product[] = [
-    {
-      name: "Arroz",
-      avgPrice: 2.5,
-      lowestPrice: 2.2,
-      sources: ["Mercado A", "Supermercado B"],
-    },
-    {
-      name: "Leche",
-      avgPrice: 1.8,
-      lowestPrice: 1.5,
-      sources: ["Tienda C", "Mercado D"],
-    },
-    {
-      name: "Huevos",
-      avgPrice: 3.2,
-      lowestPrice: 2.9,
-      sources: ["Supermercado B", "Tienda E"],
-    },
-    {
-      name: "Pan",
-      avgPrice: 1.2,
-      lowestPrice: 1.0,
-      sources: ["Panadería F", "Mercado A"],
-    },
-    {
-      name: "Aceite",
-      avgPrice: 4.5,
-      lowestPrice: 4.0,
-      sources: ["Supermercado B", "Tienda C"],
-    },
-  ];
+  useEffect(()=> {
+    const fetchProducts = async () => {
+      const mainProducts: Product[] = await (await fetch(`${api_url}/api/prices`)).json()
+      if(mainProducts){
+        setProducts(mainProducts)
+      }
+    }
+    fetchProducts();
+  }, [])
+
 
   return (
     <div className="dashboard">
@@ -123,7 +97,7 @@ export default function Dashboard() {
         </div>
 
         <div className="contentGrid">
-          <ProductList products={mainProducts} />
+          <ProductList products={products} />
           <div>
             <h2 className="sectionTitle">Filtros</h2>
             <div className="filtersCard">

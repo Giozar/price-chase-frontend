@@ -1,7 +1,8 @@
 export interface Product {
     name: string;
-    avgPrice: number;
-    lowestPrice: number;
-    sources: string[];
+    description: string;
+    price: number;
+    store: string;
+    lastChecked: string;
   }
   

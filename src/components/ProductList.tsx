@@ -6,7 +6,7 @@ export default function ProductList({products}:{products: Product[]}) {
         <div>
             <h2 className="sectionTitle">Productos Principales</h2>
             <div className="productsGrid">
-              {products.map((product, index) => (
+              {products.length > 0 && products.map((product, index) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <ProductCard key={index} product={product} />
               ))}
